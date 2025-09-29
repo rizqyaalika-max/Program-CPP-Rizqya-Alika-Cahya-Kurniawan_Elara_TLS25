@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string> 
+using namespace std;
+
+//Fungsi untuk mengecek apakah terdapat huruf vocal
+bool isVowel(char c) {
+    c=tolower(c);
+    return c == 'a' || c == 'i' || c == 'u' || c == 'e' || c == 'o';   
+}
+
+//Fungsi untuk membalik string tanpa reverse bawaan
+string reverseString(string s) {
+    string rev = "";
+    for (int i = s.length() - 1; i >= 0; i--) {
+        rev += s[i];
+     }
+     return rev;
+}
+
+// Fungsi untuk membuat kata sandi
+string generatePassword(string word) {
+    char firstChar = word[0];
+    int asciiCode = (int)firstChar;
+
+     // Hilangkan huruf vokal
+    string noVowel = "";
+    for (char c : word) {
+         if (!isVowel(c)) {
+            noVowel += c;
+        }
+    }
+}
+    
+// Fungsi enkripsi (buat password)
+string encrypt(string word) {
+    if (word.empty()) return "";
+
+    // 1. Buang vokal
+    string consonantsOnly = "";
+    for (int i = 0; i < word.length(); i++) {
+    char c = word[i];
+    if (!isVowel(c)) consonantsOnly += c;
+   }
+}
+   
+// Balik string
+    string reversed = reverseString("consonantOnly");
+
+        
+// Masukkan kode ASCII di tengah
+   int asciiVal = (int)word[0];
+    string asciiStr = to_string(asciiVal); 
+
+    int mid = reversed.length() / 2;
+    string password = reversed.substr(0, mid) + asciiStr + reversed.substr(mid);
+    
+int main() {
+    string input;
+    cout << "Masukkan kata: ";
+    cin >> input;
+
+    string hasil = encrypt(input);
+    cout << "Password hasil enkripsi: " << hasil << endl;
+
+    return 0;
+}
+
+
+    
+   
+  
+
+    
+    
+    
