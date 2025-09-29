@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string> 
+using namespace std;
+
+string GetLampColor (int time, int offset=25) {
+    int Hijau=20, Kuning=3, Merah=80;
+    int Jumlah = Hijau + Kuning + Merah;
+    int Pos = (time-offset+Jumlah) % Jumlah;
+    
+    string colors[] = {"Hijau", "Kuning", "Merah"};
+    int index = (Pos < Hijau)?0 : (Pos < Hijau+Kuning)?1 : 2;
+    return colors[index];
+}
+int main() {
+    int waktu[] = {80,135,150,212};
+    for (int i=0; i<4; ++i) {
+        cout << "Detik ke-" << waktu[i] <<":lampu"<< GetLampColor(waktu[i]) <<endl;
+    }
+    return 0;
+}
